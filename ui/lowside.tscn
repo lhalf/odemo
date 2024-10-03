@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://camh72ykpd7kt"]
+
+[ext_resource type="Theme" uid="uid://ccuc8hdsfvxfa" path="res://assets/oakdoor_theme.tres" id="1_7qfad"]
+[ext_resource type="Script" path="res://ui/lowside.gd" id="1_o46nf"]
+
+[node name="Lowside" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("1_7qfad")
+script = ExtResource("1_o46nf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.5
+offset_right = 10.5
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JSONTitle" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "JSON"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="JSONLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "JSON Text"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SISLTitle" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "SISL"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SISLLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "SISL Text"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="NextButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

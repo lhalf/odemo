@@ -1,0 +1,13 @@
+{
+	"properties": {
+		"name": {
+			"type": "string"
+		},
+		"flag": {
+			"type": "boolean"
+		},
+		"count": {
+			"type": "string"
+		}
+	}
+}

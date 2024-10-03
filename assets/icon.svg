@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Oakdoor-Artwork" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 230">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6cbd3a;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="m98.67,84.33c-16.94,0-30.67,13.73-30.67,30.67h0c0,16.94,13.73,30.67,30.67,30.67s30.67-13.73,30.67-30.67h0c0-16.94-13.73-30.67-30.67-30.67h0"/>
+  <path class="cls-2" d="m202.02,85.02l-25.02.03v59.95l25.02-.03c16.55,0,29.97-13.42,29.98-29.97,0-16.55-13.42-29.97-29.97-29.98h0"/>
+  <rect class="cls-1" x="147.83" y="65" width="5" height="100"/>
+</svg>

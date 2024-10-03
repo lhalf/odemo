@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmgmoee3f4vlk"]
+
+[ext_resource type="Theme" uid="uid://ccuc8hdsfvxfa" path="res://assets/oakdoor_theme.tres" id="1_dyqw7"]
+[ext_resource type="Script" path="res://ui/sef.gd" id="2_y4cxt"]
+
+[node name="SEF" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme = ExtResource("1_dyqw7")
+script = ExtResource("2_y4cxt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.5
+offset_right = 159.5
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+text = "Syntactic verification"
+horizontal_alignment = 1
+
+[node name="SISLEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+expand_to_text_length = true
+
+[node name="Explanation" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[connection signal="text_changed" from="MarginContainer/HBoxContainer/VBoxContainer/SISLEdit" to="." method="_on_sisl_edit_text_changed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

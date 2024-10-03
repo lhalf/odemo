@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsa0ejpd2nrfq"]
+
+[ext_resource type="Theme" uid="uid://ccuc8hdsfvxfa" path="res://assets/oakdoor_theme.tres" id="1_abkld"]
+[ext_resource type="Texture2D" uid="uid://f18rcgnoakuh" path="res://assets/file_drop.svg" id="1_oblmh"]
+[ext_resource type="Script" path="res://ui/reset.gd" id="2_nru5f"]
+
+[node name="Reset" type="Control"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme = ExtResource("1_abkld")
+script = ExtResource("2_nru5f")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -272.0
+offset_right = 267.0
+grow_vertical = 0
+theme_override_constants/margin_left = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="JSONInput" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "{\"example\": \"json\", \"value\": 10.5}"
+placeholder_text = "Type JSON..."
+expand_to_text_length = true
+
+[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = ">"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="FileDrop" type="TextureRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(190, 190)
+layout_mode = 2
+texture = ExtResource("1_oblmh")
+expand_mode = 1
+
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/HBoxContainer/JSONInput" to="." method="_on_line_edit_gui_input"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/HBoxContainer/JSONInput" to="." method="_on_json_input_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/SendButton" to="." method="_enter_json_from_input_label"]
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" to="." method="_set_mouse_over_file_drop" binds= [true]]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer" to="." method="_set_mouse_over_file_drop" binds= [false]]
+[connection signal="gui_input" from="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/FileDrop" to="." method="_on_file_drop_gui_input"]
